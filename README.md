@@ -5,11 +5,6 @@
 ## 文章简介
 本文档复刻内容是违约期权领域的文献。文章通过设置上限和下限，实现对一篮子期权的近似估计。
 
-## 代码笔记
-230702 修正upper bound计算问题（检查发现是需要先加权后算积分），但部分结果仍然与原论文存在很大差距。
-230629 目前感觉蒙特卡洛结果没什么问题，理论价格计算存在很大偏误，可能是upper bound计算存在问题。
-230628 蒙特卡洛部分通过np.outer进行修正，使得原本for-loop循环变成直接向量化运算。这种指令并行的方法让原有的5小时模拟时间缩减为6秒。
-
 ## 公式整理
 Parameter  
 $r = 3\%$  
@@ -33,7 +28,7 @@ var upper
 
 $$
 \begin{align*}
-& \operatorname{Var}\left[S_y^c\right]=\sum_{i=1}^n \sum_{j=1}^n w_i w_j X_i(0) X_j(0) \\
+& \mathrm{Var}\left[S_y^c\right]=\sum_{i=1}^n \sum_{j=1}^n w_i w_j X_i(0) X_j(0) \\
 & \quad e^{2 r T+\left(\omega_i-q_i+\omega_j-q_j\right) T+\left(\mu_i+\mu_j\right) y+\frac{\sigma_i^2+\sigma_j^2}{2} y}\left(e^{\sigma_i \sigma_j y}-1\right) .
 \end{align*}
 $$
@@ -41,7 +36,7 @@ $$
 var lower
 $$
 \begin{align*}
-\operatorname{Var}  {\left[S_y^l\right]}&={\sum_{i=1}^n \sum_{j=1}^n w_i w_j X_i(0) X_j(0) } \\
+\mathrm{Var}  {\left[S_y^l\right]}&={\sum_{i=1}^n \sum_{j=1}^n w_i w_j X_i(0) X_j(0) } \\
 &\quad \times \mathrm{e}^{2 r T+\left(\omega_i-q_i+\omega_j-q_j\right) T+\left(\mu_i+\mu_j+\frac{1}{2}\left(\sigma_i^2\left(1-r_i^2\right)+\sigma_j^2\left(1-r_j^2\right)\right)\right) y} \\
 &\quad \times e^{\frac{1}{2}(r^2_i\sigma^2_i+r^2_j\sigma^2_j)y}(e^{r_ir_j\sigma_i\sigma_jy}-1)\\
 & {=\sum_{i=1}^n \sum_{j=1}^n w_i w_j X_i(0) X_j(0) } \\
@@ -70,3 +65,8 @@ $$z_y = \frac{Var[S_y^c]-Var[S_y]}{Var[S_y^c]-Var[S_y^l]}$$
 
 概率密度函数
 $$f_{\bar{S}}(K)=\mathrm{e}^{r T} \frac{\partial \bar{C}^2[K]}{\partial K^2}$$
+
+## Timeline
+230702 修正upper bound计算问题（检查发现是需要先加权后算积分），但部分结果仍然与原论文存在很大差距。  
+230629 目前感觉蒙特卡洛结果没什么问题，理论价格计算存在很大偏误，可能是upper bound计算存在问题。  
+230628 蒙特卡洛部分通过np.outer进行修正，使得原本for-loop循环变成直接向量化运算。这种指令并行的方法让原有的5小时模拟时间缩减为6秒。
