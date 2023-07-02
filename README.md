@@ -33,7 +33,7 @@ $$
 \end{align*}
 $$
 
-var lower
+var lower  
 
 $$
 \begin{align*}
@@ -51,21 +51,18 @@ $$\lambda_i = w_j X_j(0)\exp\{(r-q_j+\omega_j)T+\mu_j y+\frac{\sigma_j^2 y}{2}\}
 $$\sigma_{\Lambda_y}^2=\sum_{i=1}^n\lambda_i^2\sigma_i^2+\sum_{i=1, i\ne j}^n \lambda_i \lambda_j \sigma_i \sigma_j \rho_{i,j}$$  
 $$r_i=\frac{\sum_{i=1}^n\lambda_j\sigma_j\rho_{i,j}}{\sigma_{\Lambda_y}}$$
 
-var Sy
+var Sy  
 
-$$
-\begin{align*}
-	\mathrm{Var}[{_y}S]=\sum_{i=1}^{n} \sum_{j=1}^{n} w_{i} w_{j} X_{i}(0) X_{j}(0)  
-	\mathrm{e}^{2 r T+\left(\omega_{i}-q_{i}+\omega_{j}-q_{j}\right) T+\left(\mu_{i}+\mu_{j}\right) y} 
-	e^{\frac{\sigma_i^2+\sigma_j^2+\rho_{i,j}\sigma_i\sigma_j
-	}{4-\rho^2_{i,j}}2(1-\rho^2_{i,j})y}
-\end{align*}
-$$
+$$\mathrm{Var}[{_y}S]=\sum_{i=1}^{n} \sum_{j=1}^{n} w_{i} w_{j} X_{i}(0) X_{j}(0)  
+	\mathrm{e}^{2 r T+\left(\omega_{i}-q_{i}+\omega_{j}-q_{j}\right) T+\left(\mu_{i}+\mu_{j}\right) y} e^{\frac{\sigma_i^2+\sigma_j^2+\rho_{i,j}\sigma_i\sigma_j
+	}{4-\rho^2_{i,j}}2(1-\rho^2_{i,j})y}$$
 
-z_y
+$z_y$  
+
 $$z_y = \frac{Var[S_y^c]-Var[S_y]}{Var[S_y^c]-Var[S_y^l]}$$  
 
 概率密度函数
+
 $$f_{\bar{S}}(K)=\mathrm{e}^{r T} \frac{\partial \bar{C}^2[K]}{\partial K^2}$$
 
 ## Timeline
