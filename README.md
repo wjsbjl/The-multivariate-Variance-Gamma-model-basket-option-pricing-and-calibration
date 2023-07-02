@@ -8,7 +8,7 @@
 ## 公式整理
 Parameter  
 $r = 3\%$  
-$\rho_{i,j}=0, ~for~i \ne j ~and~ i, j = 1, 2, 3$  
+$$\rho_{i,j}=0, ~for~i \ne j ~and~ i, j = 1, 2, 3$$
 $N = 10^6$
 
 | 1| 1 | 2 | 3|
@@ -34,6 +34,7 @@ $$
 $$
 
 var lower
+
 $$
 \begin{align*}
 \mathrm{Var}  {\left[S_y^l\right]}&={\sum_{i=1}^n \sum_{j=1}^n w_i w_j X_i(0) X_j(0) } \\
@@ -51,6 +52,7 @@ $$\sigma_{\Lambda_y}^2=\sum_{i=1}^n\lambda_i^2\sigma_i^2+\sum_{i=1, i\ne j}^n \l
 $$r_i=\frac{\sum_{i=1}^n\lambda_j\sigma_j\rho_{i,j}}{\sigma_{\Lambda_y}}$$
 
 var Sy
+
 $$
 \begin{align*}
 	\mathrm{Var}[{_y}S]=\sum_{i=1}^{n} \sum_{j=1}^{n} w_{i} w_{j} X_{i}(0) X_{j}(0)  
